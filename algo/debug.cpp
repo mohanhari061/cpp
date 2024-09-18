@@ -24,6 +24,7 @@ template <class T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, 
 #define vll vector<ll> 
 #define vlld vector<lld> 
 #define vvlld vector<vlld> 
+#define vvvlld vector<vvlld> 
 #define vvll vector<vll>
 #define vvvll vector<vvll>
 #define vpll vector<pll>

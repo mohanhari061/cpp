@@ -28,7 +28,7 @@ void solve(ll testcase){
    graph g(n,edges,directed);
    g.display();
    // auto t=g.katzCentrality();
-   debug(t);
+   // debug(t);
    
 
    

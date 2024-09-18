@@ -7,6 +7,15 @@ class matrixOperation{
     public:
     
     
+    vvlld copy(vvll org){
+      vvlld temp(org.size(),vlld(org[0].size()));
+        for(int i=0;i<org.size();i++){
+           for(int j=0;j<org[0].size();j++){
+              temp[i][j]=(lld)org[i][j];
+           }
+        }
+        return temp;
+    }
     vvlld scalarMul(lld d,vvlld R){
         for(int i=0;i<R.size();i++){
            for(int j=0;j<R[0].size();j++){
