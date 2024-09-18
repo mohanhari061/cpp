@@ -27,8 +27,25 @@ void solve(ll testcase){
    
    graph g(n,edges,directed);
    g.display();
-   // auto t=g.katzCentrality();
-   // debug(t);
+   
+   auto localClusteringCoefficient=g.localClusteringCoefficient();
+   debug(localClusteringCoefficient);
+   
+   auto globalClusteringCoefficient=g.globalClusteringCoefficient();
+   debug(globalClusteringCoefficient);
+   
+   auto connectedComponents=g.connectedComponents();
+   debug(connectedComponents);
+   
+   auto degreeCentrality=g.degreeCentrality();
+   debug(degreeCentrality);
+   
+   auto eigenVectorCentrality=g.eigenVectorCentrality();
+   debug(eigenVectorCentrality);
+
+   auto pageRank=g.pageRank(2);
+   debug(pageRank)
+
    
 
    

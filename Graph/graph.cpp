@@ -182,9 +182,9 @@ class graph{
             for(int i=0;i<n;i++){
                d[i][i]=0;
             }
-            for(int i=0;i<n;i++){
-               for(int j=0;j<n;j++){
-                  for(int k=0;k<n;k++){
+            for(int k=0;k<n;k++){
+                for(int i=0;i<n;i++){
+                for(int j=0;j<n;j++){
                     if(d[i][j]>d[i][k]+d[k][j]){
                         d[i][j]=d[i][k]+d[k][j];
                     }
@@ -196,6 +196,10 @@ class graph{
                 auto temp=accumulate(all(d[i]),0ll);
                 ans[i]=(lld)(n-1)/temp;
             }
+            for(auto x:ans){
+                cout<<x<<" ";
+            }
+            cout<<endl;
             return ans;
         }
         
@@ -219,9 +223,7 @@ class graph{
                 for(int i=0;i<n;i++){
                    ans[i][0]/=normalizedValue;
                 }
-                debug(normalizedValue);
-                debug(ans);
-
+                
 
             }
             return ans;
@@ -230,9 +232,9 @@ class graph{
 
 
         // pending************************
-        vlld betweenessCentrality(){
+        // vlld betweenessCentrality(){
 
-        }
+        // }
 
         ll diameter(){
             closenessCentrality();
@@ -301,24 +303,23 @@ class graph{
         }
 
         vvlld pageRank(ll iterations){
-            vvlld R(1),E(1),A;
+            vvlld R(1,vlld(n,(lld)1/n)),E(1,vlld(n,(lld)1/n)),A(n,vlld(n,0));
             lld d=0.85;
+           
+            E=matOps.scalarMul(1-d,E);
+            
             for(int i=0;i<n;i++){
-                R[0].pb((lld)1/n);
-                E[0].pb((lld)1/n);
-            }
-            E=R=matOps.scalarMul(1-d,R);
-            for(int i=0;i<n;i++){
-                for(int j=0;j<m;j++){
-                    A[i][j]=adjMat[i+1][j+1];
+                for(int j=0;j<n;j++){
+                    A[i][j]=adjMat[i][j];
                 }
             }
+             
             for(int i=0;i<iterations;i++){
                 R=matOps.mul(R,A);
                 R=matOps.scalarMul(d,R);
                 R=matOps.add(E,R);       
             }
-
+            
             return R;   
 
         }
@@ -423,6 +424,7 @@ class graph{
             return count/(lld)(a.size());
             
         }
+        /*
         vlld linkPredStatusTheory(ll A,ll B){
             
             vlld ans;
