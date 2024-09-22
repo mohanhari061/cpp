@@ -1,10 +1,11 @@
 #include <bits/stdc++.h>
 // #include "./algo/debug.cpp" 
 #include "./Graph/graph.cpp" 
+#include "./FileSystem/DateMap.cpp" 
 using namespace std ;
 
 
-void solve(ll testcase){
+void solve(ll testcase){/*
    ll n,m,directed,temp=0; cin >> n >> m >>  directed;
    vvll edges(m);
    map<ll,ll> mp,rmp;
@@ -46,7 +47,10 @@ void solve(ll testcase){
    auto pageRank=g.pageRank(2);
    debug(pageRank)
 
-   
+   */
+   dateMap d;
+   debug(d.m);
+
 
    
    
